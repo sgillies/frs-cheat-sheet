@@ -65,3 +65,41 @@ __Extract from a vector file based on query__
 __Subset & filter all shapefiles in a directory__
 
   	TODO
+
+Raster operations
+---
+__Get raster information__
+
+	rio info input.tif
+
+__Print raster extent__
+
+	rio info input.tif --bounds
+
+__Print raster coordinate reference system__
+
+	rio info input.tif --crs
+	
+__Print count of raster bands__
+
+	rio info input.tif --count
+
+__Get raster extent as GeoJSON__
+
+And pipe to geojsonio-cli:
+
+	rio bounds input.tif | geojsonio
+
+__Extract vectors from raster band as GeoJSON__
+
+	rio shapes input.tif --bidx 1 > output.json
+
+__Extract data/nodata vectors from raster as GeoJSON__
+
+	rio shapes input.tif --mask > output.json
+	
+__Burn vector into raster__
+
+	TODO
+
+(Lots of other operations TODO)
