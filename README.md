@@ -1,7 +1,7 @@
 Fiona-Rasterio-Shapely Cheat Sheet
 ==================================
 
-Cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools
+A cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools. Suggestions welcome!
 
 Vector operations
 ---
