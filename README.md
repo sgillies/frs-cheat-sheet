@@ -28,7 +28,7 @@ __List vector drivers__
 
 __Convert vectors to GeoJSON__
 
-  fio cat input.shp --dst_crs EPSG:4326 | fio collect --precision 6 > output.json
+	fio cat input.shp --dst_crs EPSG:4326 | fio collect --precision 6 > output.json
 
 __Convert between vector formats__
 
@@ -40,11 +40,11 @@ __Print count of features with attributes matching a given pattern__
 
 __Clip vectors by bounding box__
 
-  TODO
+	TODO
 
 __Clip one vector by another__
 
-  TODO
+	TODO
 
 __Reproject vector:__
 
@@ -52,16 +52,16 @@ __Reproject vector:__
 	
 __Merge features in a vector file by attribute ("dissolve")__
 
-  TODO
+  	TODO
 
 __Merge vector files:__
 
-  fio cat input1.shp input2.shp | fio load --driver Shapefile merged.shp
+  	fio cat input1.shp input2.shp | fio load --driver Shapefile merged.shp
 
 __Extract from a vector file based on query__
 
-  TODO
+  	TODO
 
 __Subset & filter all shapefiles in a directory__
 
-  TODO
+  	TODO
