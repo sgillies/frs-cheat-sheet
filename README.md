@@ -74,6 +74,15 @@ yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 	| fio collect \
 	| geojsonio
 
+#### Filter a vector file in parallel
+
+Using GNU Parallel
+
+	fio cat docs/data/test_uk.shp --x-json-seq-no-rs \
+	| parallel --pipe "jq -c 'select(.id==\"10\")'" \
+	| fio collect \
+	| geojsonio
+
 #### Subset & filter all shapefiles in a directory
 
   	TODO
