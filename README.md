@@ -62,7 +62,8 @@ __Merge vector files:__
 
 #### Filter a vector file
 
-Using [jq](http://stedolan.github.io/jq/) and [geojsonio-cli](https://github.com/mapbox/geojsonio-cli). Jq can't
+Using [jq](http://stedolan.github.io/jq/) for filtering and 
+[geojsonio-cli](https://github.com/mapbox/geojsonio-cli) for display of results. Jq can't
 yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 
 	fio cat input.shp --x-json-seq-no-rs \
