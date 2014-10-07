@@ -6,59 +6,62 @@ A cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools. Suggestions
 Vector operations
 ---
 
-__Get vector information__
+#### Get vector information
 
 	fio info input.shp
 
-__Print vector extent__
+#### Print vector extent
 
 	fio info input.shp --bounds
 
-__Print vector coordinate reference system__
+#### Print vector coordinate reference system
 
 	fio info input.shp --crs
 	
-__Print count of features__
+#### Print count of features
 
 	fio info input.shp --count
 	
-__List vector drivers__
+#### List vector drivers
 
 	TODO
 
-__Convert vectors to GeoJSON__
+#### Convert vectors to GeoJSON
 
-	fio cat input.shp --dst_crs EPSG:4326 | fio collect --precision 6 > output.json
+	fio cat input.shp --dst_crs EPSG:4326 \
+	| fio collect --precision 6 > output.json
 
-__Convert between vector formats__
+#### Convert between vector formats
 
 	fio cat input.shp | fio load --driver Shapefile output.shp
 
-__Print count of features with attributes matching a given pattern__
+#### Print count of features with attributes matching a given pattern
 
-Using grep:
+Using grep.
 
 	fio cat input.shp | grep "Search Pattern" -c
 
-__Clip vectors by bounding box__
+#### Clip vectors by bounding box
 
 	TODO
 
-__Clip one vector by another__
+#### Clip one vector by another
 
 	TODO
 
-__Reproject vector:__
+#### Reproject vector
 
-	fio cat input.shp --dst_crs EPSG:4326 | fio load --driver Shapefile --dst_crs EPSG:4326 output.shp
+	fio cat input.shp --dst_crs EPSG:4326 \
+	| fio load --driver Shapefile --dst_crs EPSG:4326 output.shp
 	
-__Merge features in a vector file by attribute ("dissolve")__
+#### Merge features in a vector file by attribute ("dissolve")
 
   	TODO
 
-__Merge vector files:__
+#### Merge vector files
 
-  	fio cat input1.shp input2.shp | fio load --driver Shapefile merged.shp
+  	fio cat input1.shp input2.shp \
+  	| fio load --driver Shapefile merged.shp
 
 #### Filter a vector file
 
@@ -71,43 +74,44 @@ yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 	| fio collect \
 	| geojsonio
 
-__Subset & filter all shapefiles in a directory__
+#### Subset & filter all shapefiles in a directory
 
   	TODO
 
 Raster operations
 ---
-__Get raster information__
+
+#### Get raster information
 
 	rio info input.tif
 
-__Print raster extent__
+#### Print raster extent
 
 	rio info input.tif --bounds
 
-__Print raster coordinate reference system__
+#### Print raster coordinate reference system
 
 	rio info input.tif --crs
 	
-__Print count of raster bands__
+#### Print count of raster bands
 
 	rio info input.tif --count
 
-__Get raster extent as GeoJSON__
+#### Get raster extent as GeoJSON
 
 And pipe to geojsonio-cli:
 
 	rio bounds input.tif | geojsonio
 
-__Extract vectors from raster band as GeoJSON__
+#### Extract vectors from raster band as GeoJSON
 
 	rio shapes input.tif --bidx 1 > output.json
 
-__Extract data/nodata vectors from raster as GeoJSON__
+#### Extract data/nodata vectors from raster as GeoJSON
 
 	rio shapes input.tif --mask > output.json
 	
-__Burn vector into raster__
+#### Burn vector into raster
 
 	TODO
 
