@@ -36,6 +36,8 @@ __Convert between vector formats__
 
 __Print count of features with attributes matching a given pattern__
 
+Using grep:
+
 	fio cat input.shp | grep "Search Pattern" -c
 
 __Clip vectors by bounding box__
@@ -58,9 +60,14 @@ __Merge vector files:__
 
   	fio cat input1.shp input2.shp | fio load --driver Shapefile merged.shp
 
-__Extract from a vector file based on query__
+__Filter a vector file__
 
-  	TODO
+Using [jq](http://stedolan.github.io/jq/) and [geojsonio-cli](https://github.com/mapbox/geojsonio-cli).
+
+	fio cat ~/code/Fiona/docs/data/test_uk.shp --x-json-seq-no-rs \
+	| jq 'select(.id=="10")' -c \
+	| fio collect \
+	| geojsonio
 
 __Subset & filter all shapefiles in a directory__
 
