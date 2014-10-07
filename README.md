@@ -60,7 +60,7 @@ __Merge vector files:__
 
   	fio cat input1.shp input2.shp | fio load --driver Shapefile merged.shp
 
-### Filter a vector file
+#### Filter a vector file
 
 Using [jq](http://stedolan.github.io/jq/) and [geojsonio-cli](https://github.com/mapbox/geojsonio-cli). Jq can't
 yet handle RS-separated sequences, so use --x-json-seq-no-rs.
