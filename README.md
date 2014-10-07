@@ -78,7 +78,7 @@ yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 
 Using GNU Parallel
 
-	fio cat docs/data/test_uk.shp --x-json-seq-no-rs \
+	fio cat input.shp --x-json-seq-no-rs \
 	| parallel --pipe "jq -c 'select(.id==\"10\")'" \
 	| fio collect \
 	| geojsonio
