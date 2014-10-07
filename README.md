@@ -60,11 +60,12 @@ __Merge vector files:__
 
   	fio cat input1.shp input2.shp | fio load --driver Shapefile merged.shp
 
-__Filter a vector file__
+## Filter a vector file
 
-Using [jq](http://stedolan.github.io/jq/) and [geojsonio-cli](https://github.com/mapbox/geojsonio-cli).
+Using [jq](http://stedolan.github.io/jq/) and [geojsonio-cli](https://github.com/mapbox/geojsonio-cli). Jq can't
+yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 
-	fio cat ~/code/Fiona/docs/data/test_uk.shp --x-json-seq-no-rs \
+	fio cat input.shp --x-json-seq-no-rs \
 	| jq 'select(.id=="10")' -c \
 	| fio collect \
 	| geojsonio
