@@ -112,6 +112,12 @@ And pipe to geojsonio-cli:
 
 	rio bounds input.tif | geojsonio
 
+#### Concatenate or stack datasets together
+
+New in 0.15.
+
+	rio stack r.tif g.tif b.tif -o rgb.tif
+
 #### Extract vectors from raster band as GeoJSON
 
 	rio shapes input.tif --bidx 1 > output.json
