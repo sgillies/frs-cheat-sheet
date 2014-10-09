@@ -1,7 +1,7 @@
 Fiona-Rasterio-Shapely Cheat Sheet
 ==================================
 
-A cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools. Suggestions welcome!
+A cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools, with apologies to [@dwtkns](https://github.com/dwtkns/gdal-cheat-sheet). Suggestions welcome!
 
 Vector operations
 ---
@@ -27,6 +27,8 @@ Vector operations
 	TODO
 
 #### Convert vectors to GeoJSON
+
+With coordinate reference system transformation and rounding of numbers to a constant precision.
 
 	fio cat input.shp --dst_crs EPSG:4326 \
 	| fio collect --precision 6 > output.json
@@ -60,8 +62,7 @@ Using grep.
 
 #### Merge vector files
 
-  	fio cat input1.shp input2.shp \
-  	| fio load --driver Shapefile merged.shp
+  	fio cat *.shp | fio load --driver Shapefile merged.shp
 
 #### Filter a vector file
 
