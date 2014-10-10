@@ -6,9 +6,25 @@ A cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools, with apolog
 Vector operations
 ---
 
+#### Get Fiona version
+
+New in 1.4.3
+
+	fio --version
+
+#### Enumerate format drivers
+
+New in 1.4.3
+
+	fio env --formats
+
 #### Get vector information
 
 	fio info input.shp
+
+#### Print vector format
+
+	fio info input.shp --format
 
 #### Print vector extent
 
@@ -35,7 +51,7 @@ With coordinate reference system transformation and rounding of numbers to a con
 
 #### Convert between vector formats
 
-	fio cat input.shp | fio load --driver Shapefile output.shp
+	fio cat input.shp | fio load --format Shapefile output.shp
 
 #### Print count of features with attributes matching a given pattern
 
@@ -54,7 +70,7 @@ Using grep.
 #### Reproject vector
 
 	fio cat input.shp --dst_crs EPSG:4326 \
-	| fio load --driver Shapefile --dst_crs EPSG:4326 output.shp
+	| fio load --format Shapefile --dst_crs EPSG:4326 output.shp
 	
 #### Merge features in a vector file by attribute ("dissolve")
 
@@ -62,7 +78,7 @@ Using grep.
 
 #### Merge vector files
 
-  	fio cat *.shp | fio load --driver Shapefile merged.shp
+  	fio cat *.shp | fio load --format Shapefile merged.shp
 
 #### Filter a vector file
 
