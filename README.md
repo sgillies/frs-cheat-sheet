@@ -105,6 +105,8 @@ New in 0.15
 
 #### Get raster information
 
+As JSON – no more screen scraping the output of gdalinfo!
+
 	rio info input.tif
 
 #### Print raster format
