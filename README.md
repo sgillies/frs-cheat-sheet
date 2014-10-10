@@ -91,9 +91,25 @@ Using GNU Parallel
 Raster operations
 ---
 
+#### Get Rasterio version
+
+New in 0.15
+
+	rio --version
+
+#### Enumerate format drivers
+
+New in 0.15
+
+	rio env --formats
+
 #### Get raster information
 
 	rio info input.tif
+
+#### Print raster format
+
+	rio info input.tif --format
 
 #### Print raster extent
 
