@@ -37,10 +37,6 @@ New in 1.4.3
 #### Print count of features
 
 	fio info input.shp --count
-	
-#### List vector drivers
-
-	TODO
 
 #### Convert vectors to GeoJSON
 
@@ -57,7 +53,12 @@ With coordinate reference system transformation and rounding of numbers to a con
 
 Using grep.
 
-	fio cat input.shp | grep "Search Pattern" -c
+	fio cat input.shp | grep "pattern" -c
+
+Using [jq](http://stedolan.github.io/jq/).
+
+	fio cat input.shp --x-json-seq-no-rs \
+	| jq '.properties.my_prop=="pattern"' | grep -c true
 
 #### Clip vectors by bounding box
 
@@ -82,7 +83,7 @@ Using grep.
 
 #### Filter a vector file
 
-Using [jq](http://stedolan.github.io/jq/) for filtering and 
+Using jq for filtering and 
 [geojsonio-cli](https://github.com/mapbox/geojsonio-cli) for display of results. Jq can't
 yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 
