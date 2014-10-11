@@ -53,12 +53,12 @@ With coordinate reference system transformation and rounding of numbers to a con
 
 Using grep.
 
-	fio cat input.shp | grep "pattern" -c
+	fio cat input.shp | grep -c "pattern"
 
 Using [jq](http://stedolan.github.io/jq/).
 
 	fio cat input.shp --x-json-seq-no-rs \
-	| jq '.properties.my_prop=="pattern"' | grep -c true
+	| jq '.properties.my_prop=="pattern"' | grep -c "true"
 
 #### Clip vectors by bounding box
 
