@@ -57,16 +57,15 @@ Using grep.
 
 Using [jq](http://stedolan.github.io/jq/).
 
-	fio cat input.shp --x-json-seq-no-rs \
-	| jq '.properties.my_prop=="pattern"' | grep -c "true"
+	fio cat input.shp | jq '.properties.my_prop=="pattern"' | grep -c "true"
 
-#### Clip vectors by bounding box
+#### Select features by long/lat bounding box
 
-	TODO
+	fio cat input.shp --bbox "$WEST,$SOUTH,$EAST,$NORTH"
 
-#### Clip one vector by another
+#### Select features by bounds of another dataset
 
-	TODO
+	$ fio cat input.shp --bbox "`fio info other.shp --bounds | tr ' ' ','`"
 
 #### Reproject vector
 
@@ -84,10 +83,9 @@ Using [jq](http://stedolan.github.io/jq/).
 #### Filter a vector file
 
 Using jq for filtering and 
-[geojsonio-cli](https://github.com/mapbox/geojsonio-cli) for display of results. Jq can't
-yet handle RS-separated sequences, so use --x-json-seq-no-rs.
+[geojsonio-cli](https://github.com/mapbox/geojsonio-cli) for display of results.
 
-	fio cat input.shp --x-json-seq-no-rs \
+	fio cat input.shp \
 	| jq 'select(.id=="10")' -c \
 	| fio collect \
 	| geojsonio
@@ -96,7 +94,7 @@ yet handle RS-separated sequences, so use --x-json-seq-no-rs.
 
 Using GNU Parallel
 
-	fio cat input.shp --x-json-seq-no-rs \
+	fio cat input.shp \
 	| parallel --pipe "jq -c 'select(.id==\"10\")'" \
 	| fio collect \
 	| geojsonio
@@ -164,6 +162,31 @@ New in 0.15.
 	
 #### Burn vector into raster
 
-	TODO
+[rio-rasterize](https://github.com/mapbox/rasterio/blob/master/docs/cli.rst#rasterize) is new in 0.18
+
+	$ rio rasterize output.tif --res 0.0167 < input.geojson
+
+#### Sample values of a dataset
+
+[rio-sample](https://github.com/mapbox/rasterio/blob/master/docs/cli.rst#sample) is new in 0.18
+
+	$ cat << EOF | rio sample input.tif
+	> [220649.99999832606, 2719199.999999095]
+	> EOF
 
 (Lots of other operations TODO)
+
+Coordinate transforms
+---
+
+[Transform](
+https://github.com/mapbox/rasterio/blob/master/docs/cli.rst#transform) long/lat to other CRS
+
+	$ rio transform "[-78.0, 23.0]" --dst_crs EPSG:32618 --precision 2
+
+Transform many pairs of long/lat
+
+	$ cat << EOF | rio transform --dst_crs EPSG:32618 --precision 2
+	> [-78.0, 23.0]
+	> [-79.0, 24.0]
+	> EOF
