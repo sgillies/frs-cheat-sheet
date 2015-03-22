@@ -80,6 +80,10 @@ Using [jq](http://stedolan.github.io/jq/).
 
   	fio cat *.shp | fio load --format Shapefile merged.shp
 
+#### Merge vector files (to GeoJSON)
+
+  	fio cat *.shp | fio collect > merged.json
+
 #### Filter a vector file
 
 Using jq for filtering and 
