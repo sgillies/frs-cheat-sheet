@@ -124,11 +124,11 @@ New in 0.15
 
 #### Get raster information
 
-As JSON – no more screen scraping the output of gdalinfo!
+As JSON – no more scraping the output of gdalinfo!
 
 	rio info input.tif
 
-#### Print raster format
+#### Print raster format (not JSON)
 
 	rio info input.tif --format
 
