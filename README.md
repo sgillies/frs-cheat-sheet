@@ -3,6 +3,9 @@ Fiona-Rasterio-Shapely Cheat Sheet
 
 A cheat sheet for Fiona/Rasterio/Shapely command-line geodata tools, with apologies to [@dwtkns](https://github.com/dwtkns/gdal-cheat-sheet). Suggestions welcome!
 
+See https://github.com/Toblerity/Fiona/blob/master/docs/cli.rst or `fio --help` and 
+https://github.com/mapbox/rasterio/blob/master/docs/cli.rst or `rio --help` for more about Fiona and Rasterio commands.
+
 Vector operations
 ---
 
