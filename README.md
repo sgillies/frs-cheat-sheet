@@ -175,11 +175,21 @@ New in 0.15.
 
 #### Sample values of a dataset
 
-[rio-sample](https://github.com/mapbox/rasterio/blob/master/docs/cli.rst#sample) is new in 0.18
+[rio-sample](https://github.com/mapbox/rasterio/blob/master/docs/cli.rst#sample) is new in 0.18.
 
-	$ cat << EOF | rio sample input.tif
-	> [220649.99999832606, 2719199.999999095]
-	> EOF
+```bash
+$ cat << EOF | rio sample input.tif
+> [220649.99999832606, 2719199.999999095]
+> EOF
+```
+
+#### Copy georeferencing, tags, and nodata attribute from one dataset to another
+
+[rio-edit-info](https://github.com/mapbox/rasterio/blob/master/docs/cli.rst#edit-info) is new in 0.24.
+
+```bash
+$ rio edit-info unreferenced.jpg --like referenced.tif --all
+```
 
 (Lots of other operations TODO)
 
