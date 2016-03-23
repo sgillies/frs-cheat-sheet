@@ -73,7 +73,7 @@ Using [jq](http://stedolan.github.io/jq/).
 #### Reproject vector
 
 	fio cat input.shp --dst_crs EPSG:4326 \
-	| fio load --format Shapefile --dst_crs EPSG:4326 output.shp
+	| fio load --sequence --format Shapefile --dst_crs EPSG:4326 output.shp
 	
 #### Merge features in a vector file by attribute ("dissolve")
 
